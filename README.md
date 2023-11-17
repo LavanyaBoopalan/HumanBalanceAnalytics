@@ -11,7 +11,8 @@ In this project a data lakehouse solution has to be built for the STEDI team. Da
 
 AWS Glue and S3 access setup
 
-![image-2.png](attachment:image-2.png)
+![image](https://github.com/LavanyaBoopalan/HumanBalanceAnalytics/assets/24756600/93473334-1857-4988-9884-a65b9597caaa)
+
 
 Using AWS CLI execute the following steps:
 
@@ -170,8 +171,9 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAc
 
 ## Building Data Lakehouse Solution
 
+![image](https://github.com/LavanyaBoopalan/HumanBalanceAnalytics/assets/24756600/fb0fa325-71b5-45c6-b4b7-7dd79b5f2a8c)
 
-![image.png](attachment:image.png)
+
 
 ### Build Data Landing Zone
 
