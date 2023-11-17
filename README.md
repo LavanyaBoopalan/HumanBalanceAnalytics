@@ -175,7 +175,7 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAc
 
 
 
-#### Build Data Landing Zone
+### Build Data Landing Zone
 
 1) From AWS CLI, Extract the data from the source path to the following AWS S3 bucket :
 
@@ -200,7 +200,7 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAc
 3) Use AWS Athena to query and verify the source data in the Landing zone.
 
 
-#### Build Data Trusted Zone
+### Build Data Trusted Zone
 
 1) Following Glue Jobs are created to extract the data from the landing zone , filter and create the trusted zone.
 
@@ -226,7 +226,7 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAc
 4) Use AWS Athena to query and verify the data in the Trusted zone tables.
 
 
-#### Build Data Curated Zone
+### Build Data Curated Zone
 
 1) Following Glue Jobs are created to extract the data from the trusted zone, add transformations and joins as per the analytics requirements and create the curated zone.
 
