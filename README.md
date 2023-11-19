@@ -187,21 +187,21 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAc
 1) From AWS CLI, Extract the data from the source path to the following AWS S3 bucket :
 Bucket: s3://stedihb-lake-house
  
-**customer/landing** <br>
-**steptrainer/landing** <br>
-**accelerometer/landing** <br>
+   **customer/landing** <br>
+   **steptrainer/landing** <br>
+   **accelerometer/landing** <br>
  
 2) Manually create a Glue Table for each of the above landing data using Glue Console from JSON data
 
-**customer_landing.sql**
-**accelerometer_landing.sql**
-**step_trainer_landing.sql**
+   **customer_landing.sql**<br>
+   **accelerometer_landing.sql**<br>
+   **step_trainer_landing.sql**<br>
 
 3) Following Landing zone tables are created :
 
-**customer_landing**
-**accelerometer_landing**
-**steptrainer_landing**
+   **customer_landing**<br>
+   **accelerometer_landing**<br>
+   **steptrainer_landing**<br>
 
 3) Use AWS Athena to query and verify the source data in the Landing zone.
 
@@ -210,14 +210,14 @@ Bucket: s3://stedihb-lake-house
 
 1) Following Glue Jobs are created to extract the data from the landing zone , filter and create the trusted zone.
 
-**customer_landing_to_trusted.py**
-     - Drops rows that do not have data in the sharedWithResearchAsOfDate column.
+   **customer_landing_to_trusted.py**
+        - Drops rows that do not have data in the sharedWithResearchAsOfDate column.
      
-**accelerometer_landing_to_trusted.py**
-     -  inner joins the customer_trusted data with the accelerometer_landing data by emails.
+   **accelerometer_landing_to_trusted.py**
+        - inner joins the customer_trusted data with the accelerometer_landing data by emails.
      
-**step_trainer_landing_to_trusted.py** (Job created after the customer curated data)
-      - inner joins the step_trainer_landing data with the customer_curated data by serial numbers.
+   **step_trainer_landing_to_trusted.py** (Job created after the customer curated data)
+        - inner joins the step_trainer_landing data with the customer_curated data by serial numbers.
   
 
 2) Configure the jobs to Create a table in the Data Catalog and, on subsequent runs, update the schema and add new partitions.
@@ -225,9 +225,9 @@ Bucket: s3://stedihb-lake-house
 
 3) Following Trusted zone tables are created in the Data Catalog as part of the Glue Job  :
 
-**customer_trusted**
-**accelerometer_trusted**
-**steptrainer_trusted**
+   **customer_trusted**
+   **accelerometer_trusted**
+   **steptrainer_trusted**
 
 4) Use AWS Athena to query and verify the data in the Trusted zone tables.
 
@@ -236,12 +236,12 @@ Bucket: s3://stedihb-lake-house
 
 1) Following Glue Jobs are created to extract the data from the trusted zone, add transformations and joins as per the analytics requirements and create the curated zone.
 
-**customer_trusted_to_curated.py** 
-    - inner joins the customer_trusted data with the accelerometer_trusted data by emails.
-**step_trainer_trusted.py**
-    - inner joins the step_trainer_landing data with the customer_curated data by serial numbers.
-**machine_learning_curated.py** 
-    - inner joins the step_trainer_trusted data with the accelerometer_trusted data by sensor reading time and timestamps.
+   **customer_trusted_to_curated.py** 
+       - inner joins the customer_trusted data with the accelerometer_trusted data by emails.
+   **step_trainer_trusted.py**
+       - inner joins the step_trainer_landing data with the customer_curated data by serial numbers.
+   **machine_learning_curated.py** 
+       - inner joins the step_trainer_trusted data with the accelerometer_trusted data by sensor reading time and timestamps.
     
 2) PII data such as customername, email and phone are anonymized so that it is not subject to GDPR.
 
@@ -251,7 +251,7 @@ Bucket: s3://stedihb-lake-house
 
 3) Following Curated zone tables are created in the Data Catalog as part of the Glue Job  :
 
-**customer_curated**
-**machinelearning_curated**
+   **customer_curated**
+   **machinelearning_curated**
 
 4) Use AWS Athena to query and verify the data in the Curated zone tables.
