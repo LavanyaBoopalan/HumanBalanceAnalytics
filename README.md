@@ -259,7 +259,7 @@ Bucket: s3://stedihb-lake-house
 
 3) Following Curated zone tables are created in the Data Catalog as part of the Glue Job  :
 
-   **customer_curated**
+   **customer_curated**<br>
    **machinelearning_curated**
 
 4) Use AWS Athena to query and verify the data in the Curated zone tables.
