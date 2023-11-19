@@ -185,12 +185,11 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAc
 ### Build Data Landing Zone
 
 1) From AWS CLI, Extract the data from the source path to the following AWS S3 bucket :
-
- Bucket: s3://stedihb-lake-house
+Bucket: s3://stedihb-lake-house
  
-**customer/landing**
-**steptrainer/landing**
-**accelerometer/landing**
+**customer/landing** <br>
+**steptrainer/landing** <br>
+**accelerometer/landing** <br>
  
 2) Manually create a Glue Table for each of the above landing data using Glue Console from JSON data
 
