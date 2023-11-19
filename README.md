@@ -218,13 +218,13 @@ Bucket: s3://stedihb-lake-house
 
 1) Following Glue Jobs are created to extract the data from the landing zone , filter and create the trusted zone.
 
-       **customer_landing_to_trusted.py**
+   **customer_landing_to_trusted.py**
             - Drops rows that do not have data in the sharedWithResearchAsOfDate column.
      
-       **accelerometer_landing_to_trusted.py**
+   **accelerometer_landing_to_trusted.py**
             - inner joins the customer_trusted data with the accelerometer_landing data by emails.
      
-       **step_trainer_landing_to_trusted.py** (Job created after the customer curated data)
+   **step_trainer_landing_to_trusted.py** (Job created after the customer curated data)
             - inner joins the step_trainer_landing data with the customer_curated data by serial numbers.
   
 
@@ -255,7 +255,8 @@ Bucket: s3://stedihb-lake-house
 2) Configure the jobs to Create a table in the Data Catalog and, on subsequent runs, update the schema and add new partitions.
 
 3) Following Curated zone tables are created in the Data Catalog as part of the Glue Job  :
+   
        **customer_curated**<br>
        **machinelearning_curated**
 
-4) Use AWS Athena to query and verify the data in the Curated zone tables.
+5) Use AWS Athena to query and verify the data in the Curated zone tables.
