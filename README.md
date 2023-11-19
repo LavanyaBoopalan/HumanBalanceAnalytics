@@ -34,6 +34,7 @@ aws ec2 create-vpc-endpoint --vpc-id vpc-07b7111158de6d9fd --service-name com.am
 
 Step 5: create a IAM Service role 
 
+```
 aws iam create-role --role-name my-glue-s3-service-role --assume-role-policy-document '{
     "Version": "2012-10-17",
     "Statement": [
@@ -46,9 +47,11 @@ aws iam create-role --role-name my-glue-s3-service-role --assume-role-policy-doc
         }
     ]
 }'
+```
 
 Step 6: Grant S3 access to IAM Service role 
 
+```
 aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name S3Access --policy-document '{
     "Version": "2012-10-17",
     "Statement": [
@@ -72,9 +75,12 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name S3Acce
         }
     ]
 }'
+```
+
 
 Step 7: Grant Glue access to the S3 buckets     
 
+```
 aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAccess --policy-document '{
     "Version": "2012-10-17",
     "Statement": [
@@ -168,6 +174,7 @@ aws iam put-role-policy --role-name my-glue-s3-service-role --policy-name GlueAc
         }
     ]
 }'
+```
 
 ### Building Data Lakehouse Solution
 
