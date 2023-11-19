@@ -17,20 +17,28 @@ AWS Glue and S3 access setup
 Using AWS CLI execute the following steps:
 
 Step 1: Creating an AWS S3 Bucket 
-   
+
+''' 
 aws s3 mb s3://stedihb-lake-house
+''' 
     
 Step 2: Identify the VPC that needs access to S3:
 
+''' 
 aws ec2 describe-vpcs
+''' 
 
-Step 3: Identify the routing table to configure with VPC Gateway. 
+Step 3: Identify the routing table to configure with VPC Gateway.
 
+''' 
 aws ec2 describe-route-tables
+''' 
 
 Step 4: Create an S3 Gateway Endpoint
 
+''' 
 aws ec2 create-vpc-endpoint --vpc-id vpc-07b7111158de6d9fd --service-name com.amazonaws.us-east-1.s3 --route-table-ids rtb-05dc4999ffbc6f757
+''' 
 
 Step 5: create a IAM Service role 
 
