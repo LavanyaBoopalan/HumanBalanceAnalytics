@@ -254,7 +254,7 @@ Bucket: s3://stedihb-lake-house
 
 2) Configure the jobs to Create a table in the Data Catalog and, on subsequent runs, update the schema and add new partitions.
 
-3) Following Curated zone tables are created in the Data Catalog as part of the Glue Job  :
+3) Following Curated zone tables are created in the Data Catalog as part of the Glue Job  :<br>
        **customer_curated**<br>
        **machinelearning_curated**
 
